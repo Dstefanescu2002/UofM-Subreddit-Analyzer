@@ -2,6 +2,6 @@ from dataclasses import dataclass
 
 @dataclass
 class Sentiment:
-    POSITIVE = "positive"
-    NEUTRAL = "neutral"
-    NEGATIVE = "negative"
+    POSITIVE = 1
+    NEUTRAL = 0
+    NEGATIVE = -1
