@@ -1,4 +1,4 @@
-# EECS448-final-project
+# Analyzing the University of Michigan Subreddit
 
 ## Sentiment Analysis
 
@@ -13,3 +13,6 @@ In addition, we have several scripts to run our tool on larger coruses of data, 
 ## Data Collection
 
 Within the data_collection folder, you will find a script to scrape data from the University of Michigan subreddit.
+
+> **Note**
+> Our labeled data is not on the github, but rather in our private google drive. It contained 450 posts labeled for sentiment analysis and entity extraction.
