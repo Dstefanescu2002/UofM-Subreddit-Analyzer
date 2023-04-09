@@ -1,19 +1,39 @@
-from department_names import DEPARTMENT_NAMES
+from .department_names import DEPARTMENT_NAMES
 import re
 
 class EntityExtractor:
+
+    def __extract_cs_classes(self, text, entities):
+        cs_entities = []
+        cs_abreviations = \
+            [
+                203, 280, 281, 370, 376, 482, 483, 484, 388,
+                489, 491, 442, 445, 467, 486, 492, 486, 485,
+                482, 484, 485, 494, 475, 477, 490, 285, 493
+            ]
+        for a in cs_abreviations:
+            a_str = str(a)
+            if a_str in text and (sum([a_str in e for e in entities]) == 0):
+                cs_entities.append(f'EECS {a_str}')
+        return cs_entities
         
     def extract(self, text: str) -> list:
         text = text.upper()
         dn_text = '|'.join(DEPARTMENT_NAMES)
         pattern = re.compile(f'\\b({dn_text}).?.?([1-9]\d{{2}})\\b')
         re_output = pattern.findall(text)
-        return list(set([' '.join(x) for x in re_output]))
+        entities = [' '.join(x) for x in re_output]
+        entities += self.__extract_cs_classes(text, entities)
+        return list(set(entities))
 
     def batch_extract(self, posts: list) -> list:
         entities = []
         for post in posts:
-            entities.append(self.extract(post))
+            try:
+                
+                entities.append(self.extract(post))
+            except:
+                print (post)
         return entities
     
     def calculate_accuracy(self, pred_entities: list, correct_entities: list) -> float:
