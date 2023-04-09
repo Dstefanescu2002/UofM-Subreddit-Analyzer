@@ -26,14 +26,25 @@ class EntityExtractor:
         entities += self.__extract_cs_classes(text, entities)
         return list(set(entities))
 
-    def batch_extract(self, posts: list) -> list:
+    def batch_extract(self, posts: list, first_only=False, stats_enabled=False) -> list:
         entities = []
+        total_nonsingular = 0
+        total_with_entity = 0
         for post in posts:
-            try:
-                
-                entities.append(self.extract(post))
-            except:
-                print (post)
+            found_entities = self.extract(post)
+            if not found_entities:
+                found_entities = ["NONE"]
+            elif len(found_entities) > 1:
+                total_nonsingular += 1
+                total_with_entity += 1
+            else:
+                total_with_entity += 1
+            entities.append(found_entities[0] if first_only else found_entities)
+        if stats_enabled:
+            print("Posts with multiple entities: ", total_nonsingular)
+            print("Total posts with entities: ", total_with_entity)
+            print("Percent of posts with multiple entities: ", total_nonsingular/total_with_entity*100)
+            print()
         return entities
     
     def calculate_accuracy(self, pred_entities: list, correct_entities: list) -> float:
