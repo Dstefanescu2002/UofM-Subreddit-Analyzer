@@ -160,3 +160,6 @@ cython_debug/
 #.idea/
 .DS_Store
 /Labelled_Data
+/Data
+/sentiment_pred_labels
+/Cross_Labelled_Data
