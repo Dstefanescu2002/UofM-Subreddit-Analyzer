@@ -1,5 +1,5 @@
 from transformers import pipeline
-from sentiment_enum import Sentiment
+from .sentiment_enum import Sentiment
 from tqdm import tqdm
 
 MODEL_DIR = 'cardiffnlp/twitter-roberta-base-sentiment-latest'
@@ -55,3 +55,15 @@ class SentimentAnalyzer:
             else:
                 num_correct += 1 + (pair[1] - 0.5)
         return num_correct / len(correct_labels)
+    
+    def calculate_cross_accuracy(self, pred_labels, correct_labels):
+        running_total = 0
+        ic = [0, 0, 0]
+        t = [0, 0, 0]
+        for idx, pair in enumerate(pred_labels):
+            t[pair[0] + 1] += 1
+            if pair[0] in correct_labels[idx]:
+                running_total += 1
+                ic[pair[0] + 1] += 1
+        print(f'Negative-Acc: {ic[0]/t[0]}, Neutral-Acc: {ic[1]/t[1]}, Positive-Acc: {ic[2]/t[2]}')
+        return running_total / len(pred_labels)
