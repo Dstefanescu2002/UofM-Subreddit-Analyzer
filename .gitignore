@@ -164,3 +164,6 @@ cython_debug/
 /sentiment_pred_labels
 /Cross_Labelled_Data
 /Atlas
+/Labeled_Sentiment
+Entity_Extraction/entities.csv
+Entity_Extraction/linking.json
