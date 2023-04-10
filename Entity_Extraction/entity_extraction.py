@@ -1,4 +1,4 @@
-from .department_names import DEPARTMENT_NAMES
+from department_names import DEPARTMENT_NAMES
 import re
 
 class EntityExtractor:
