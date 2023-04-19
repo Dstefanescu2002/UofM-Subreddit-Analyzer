@@ -2,7 +2,9 @@
 
 ## Sentiment Analysis
 
-Within the sentiment analysis folder, you will find scripts to predict the sentiments of posts. We use a pre-trained hugging face model, which we validated on your labeled dataset. We currently achieve an accuracy of 70%. sentiment_analysis.py is a file containing a class which is used to conduct the sentiment analysis.
+Within the sentiment analysis folder, you will find scripts to predict the sentiments of posts. We use a pre-trained hugging face model, which we validated on your labeled dataset. 
+* sentiment.ipynb: the notebook for pre-trained model validation and for producing sentiment labels for the entire dataset
+* sentiment_plots.ipynb: the notebook for data visualizations
 
 ## Entity Extraction
 
