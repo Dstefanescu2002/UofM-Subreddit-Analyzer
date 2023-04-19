@@ -14,6 +14,10 @@ In addition, we have several scripts to run our tool on larger coruses of data, 
 
 Within the Data_Collection folder, you will find the notebook to organize scraped Reddit data (which was initially in a database file) into formats suitable for our project.
 
-> **Note**
-> Our labeled data is not on the github, but rather in our private google drive. It contained 450 posts labeled for sentiment analysis and entity extraction.
+## Reddit Data
+
+Within the Reddit_Data folder, we have 3 sets of data:
+* data_2018_2023: the full dataset without sentiment or entity labels
+* full_data_batch_label: batches of the dataset with sentiment labels attached
+* manual: a small subset of data for manual labelling in order to validate the performance of the pre-trained model
 
