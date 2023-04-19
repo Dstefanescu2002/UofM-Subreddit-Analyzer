@@ -6,13 +6,14 @@ Within the sentiment analysis folder, you will find scripts to predict the senti
 
 ## Entity Extraction
 
-Within the entity extraction folder, you will find scripts to extract entities from a given post. We use regular expressions to extract the entities, and have found that this works better than other bruteforce algorithms, as well as pre-trained entity extractors. We currently achieve an accuracy of 87%. entity_extraction.py is a file containg a class which is used to conduct the entity extraction.
+Within the Entity_Extraction folder, you will find scripts to extract entities from a given post. We use regular expressions to extract the entities, and have found that this works better than other bruteforce algorithms, as well as pre-trained entity extractors. We currently achieve an accuracy of 87%. entity_extraction.py is a file containg a class which is used to conduct the entity extraction.
 
 In addition, we have several scripts to run our tool on larger coruses of data, and plot the result over time.
 
 ## Data Collection
 
-Within the data_collection folder, you will find a script to scrape data from the University of Michigan subreddit.
+Within the Data_Collection folder, you will find the notebook to organize scraped Reddit data (which was initially in a database file) into formats suitable for our project.
 
 > **Note**
 > Our labeled data is not on the github, but rather in our private google drive. It contained 450 posts labeled for sentiment analysis and entity extraction.
+
